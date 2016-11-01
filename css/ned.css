@@ -16,7 +16,7 @@ body    {
 #img-div    {
     width: 200px;
     height: 200px;
-    margin: 0px auto;
+    margin: 0 auto;
     z-index: 4;
 }
 .background-img {
@@ -128,4 +128,19 @@ p   {
 }
 li  {
     color: white;
+}
+#links-div {
+    width: 100%;
+    height: 150px;
+    background-color: #5e5e5e;
+}
+#footer {
+    width: 100%;
+    padding: 70px 0 75px 0;
+    background-color: #3c3c3c;
+}
+.info   {
+    float: left;
+    color: white;
+    font-family: 'Merriweather Sans', sans-serif;
 }
