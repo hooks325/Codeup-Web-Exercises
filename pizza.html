@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pizza Ordering Form</title>
+    <link rel="stylesheet" href="css/pizza.css">
+</head>
+<body>
+    <h1>Pizza Ordering Form</h1>
+    <br>
+    <div id="form-div">
+        <form method="post" action="http://requestb.in/1dwf6ib1">
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email" placeholder="Enter Email">
+            <h3>Select Your toppings</h3>
+            <input type="checkbox" name="pepperoni" id="pepperoni">
+            <label for="pepperoni">Pepperoni</label>
+            <input type="checkbox" name="sausage" id="sausage">
+            <label for="sausage">Sausage</label>
+            <input type="checkbox" name="ham" id="ham">
+            <label for="ham">Ham</label>
+            <hr>
+            <label for="crust" id="crust-label">Crust Type:</label>
+            <select name="crust" id="crust">
+                <option value="pan">Pan</option>
+                <option value="thin">Thin-N-Crispy</option>
+                <option value="deep">Deep-Dish</option>
+            </select>
+            <hr>
+            <label>
+                <input type="radio" name="delivery" value="pickup">
+                Pickup
+            </label>
+            <label>
+                <input type="radio" name="delivery" value="delivery">
+                Delivery
+            </label>
+            <input type="submit">
+
+        </form>
+    </div>
+</body>
+</html>

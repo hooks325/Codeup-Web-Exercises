@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+
+body  {
+    background-color: #b54426;
+}
+h1  {
+    text-align: center;
+    text-decoration: underline;
+    font-family: 'Indie Flower', cursive;
+    font-size: 50px;
+    color: lightgrey;
+}
+h3  {
+    text-decoration: underline;
+    margin-bottom: 5px;
+}
+#crust-label {
+    font-weight: bolder;
+}
+#form-div {
+    text-align: center;
+    margin:0 auto;
+    width: 500px;
+    height: 200px;
+    border-radius: 5px;
+    box-shadow:         inset 0 0 10px #000000;
+    background-color: coral;
+
+}
+form    {
+    padding-top: 20px;
+}
+hr  {
+    border-color: lightcoral;
+}

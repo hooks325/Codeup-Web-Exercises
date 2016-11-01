@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reddit Search</title>
+</head>
+<body>
+    <h1>Reddit Search</h1>
+    <form method="get" action="http://reddit.com/search">
+        <label for="q">Search Term: </label>
+        <input type="text" name="q" id="q">
+        <label for="sortBy">Sort by:</label>
+        <select name="sort" id="sortBy">
+            <option value="top">Top</option>
+            <option value="relevance">Relevance</option>
+            <option value="new">New</option>
+        </select>
+        <input type="submit">
+    </form>
+
+    <h1>Amazon Search</h1>
+    <form method="get" action="http://amazon.com/s">
+        <label for="amazon">Search Term: </label>
+        <input type="text" name="field-keywords" id="amazon">
+        <input type="submit">
+    </form>
+</body>
+</html>

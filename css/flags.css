@@ -1,0 +1,153 @@
+#banner {
+    background-color: cornflowerblue;
+    height: 75px;
+    width:  100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-bottom: 3px solid lightcoral;
+}
+#header1  {
+    text-indent: 120px;
+    color: white;
+}
+.label  {
+    width: 328px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: coral;
+}
+.flag-container {
+    width: 328px;
+    height: 200px;
+    background-color: aliceblue;
+    border-radius: 5px;
+    float: left;
+    box-shadow: inset 0 0 10px #000000;
+}
+#afghan-outer   {
+    position: relative;
+    top: 137px;
+    left: 100px;
+}
+#afghan-label   {
+    position: absolute;
+    top: 345px;
+    left: 108px;
+}
+#aland-label    {
+    position: absolute;
+    top: 345px;
+    left: 486px;
+}
+#aland  {
+    text-align: center;
+    margin: 5px auto;
+}
+#afghan {
+    text-align: center;
+    margin: 5px auto;
+}
+.flag-inner   {
+    width: 220px;
+    height: 147px;
+}
+#afghan-inner   {
+    background-image: linear-gradient(90deg, #000 0, #000 33%, #BF0000 33%, #BF0000 67%, #009900 67%, #009900 100%);
+    margin: auto;
+    position: relative;
+    top: 25px;
+}
+#aland-outer {
+    position: relative;
+    top: 137px;
+    margin-left: 150px;
+    z-index: 1;
+}
+#aland-blue {
+    width: 230px;
+    height: 147px;
+    background-color: blue;
+    position: relative;
+    top: 25px;
+    left: 51px;
+    z-index: 2;
+}
+#aland-yellow1  {
+    width: 230px;
+    height: 40px;
+    position: relative;
+    background-color: #FFD522;
+    top: 55px;
+    z-index: 3;
+}
+#aland-yellow2  {
+    width: 40px;
+    height: 147px;
+    position: relative;
+    background-color: #FFD522;
+    z-index: 4;
+    bottom: 40px;
+    left: 71px;
+}
+#aland-red1{
+    width:  230px;
+    height: 20px;
+    position: relative;
+    background-color: red;
+    bottom: 122px;
+    z-index: 5;
+}
+#aland-red2 {
+    width: 20px;
+    height: 147px;
+    position: relative;
+    background-color: red;
+    left: 81px;
+    bottom: 207px;
+    z-index: 6;
+}
+#bangladesh-outer   {
+    position: relative;
+    top: 137px;
+    left: 50px;
+}
+#bangldesh-inner    {
+    width: 230px;
+    height: 147px;
+    background-color: #01796F;
+    position: relative;
+    top: 25px;
+    left: 51px;
+}
+#circle {
+    width: 100px;
+    height: 100px;
+    background-color: #E11837;
+    border-radius: 50px;
+    position: relative;
+    top: 24px;
+    left: 53px;
+}
+#bangladesh-label   {
+    position: absolute;
+    top: 345px;
+    left: 864px;
+}
+#bangladesh {
+    text-align: center;
+    margin: 5px auto;
+}
+a:visited   {
+    color: #000;
+}
+input   {
+    background: transparent;
+    position: absolute;
+    left: 500px;
+    top: 25px;
+    font-size: larger;
+}
+::-webkit-input-placeholder {
+    color: lightcoral;
+}

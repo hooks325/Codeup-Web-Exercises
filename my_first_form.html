@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2>User Login</h2>
+    <form method="POST" action="http://requestb.in/1dwf6ib1">
+        <p>
+            <label for="username">Username</label>
+            <input id="username" name="username" type="text" placeholder="Username">
+        </p>
+        <p>
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" placeholder="Password">
+        </p>
+        <p>
+            <button>Login</button>
+        </p>
+    </form>
+    <h2>Compose an Email</h2>
+    <form method="POST" action="http://requestb.in/1dwf6ib1">
+        <label for="to">To:</label>
+        <input type="text" id="to" name="to">
+        <br>
+        <label for="from">From:</label>
+        <input type="text" id="from" name="from">
+        <br>
+        <label for="subject">Subject:</label>
+        <textarea name="subject" id="subject" cols="120" rows="1"></textarea>
+        <br>
+        <label for="body">Body</label>
+        <br>
+        <textarea name="body" id="body" cols="120" rows="10"></textarea>
+        <br>
+        <input type="checkbox" id="copy" name="copy" checked>
+        <label for="copy">Do you want a copy?</label>
+        <button>Send</button>
+    </form>
+    <h2>Multiple Choice Test</h2>
+    <form method="post" action="http://requestb.in/1dwf6ib1">
+        <p>What is the capital of Texas?</p>
+        <label>
+            <input type="radio" name="q1" value="austin">
+            Austin
+        </label>
+        <label>
+            <input type="radio" name="q1" value="san antonio">
+            San Antonio
+        </label>
+        <label>
+            <input type="radio" name="q1" value="dallas">
+            Dallas
+        </label>
+        <br>
+        <p>What is the color of the sky?</p>
+        <label>
+            <input type="radio" name="q2" value="red">
+            Red
+        </label>
+        <label>
+            <input type="radio" name="q2" value="blue">
+            Blue
+        </label>
+        <label>
+            <input type="radio" name="q2" value="green">
+            Green
+        </label>
+        <br>
+        <p>What teams are from Texas?</p>
+        <label>
+            <input type="checkbox" name="q3" value="Mavs">
+            Mavericks
+        </label>
+        <label>
+            <input type="checkbox" name="q3" value="Spurs">
+            Spurs
+        </label>
+        <label>
+            <input type="checkbox" name="q3" value="Warriors">
+            Warriors
+        </label>
+        <br>
+        <label for="q4">What are your favorite teams?</label>
+        <select name="q4[]" id="q4" multiple>
+            <option value="spurs">Spurs</option>
+            <option value="rangers" selected>rangers</option>
+            <option value="cowboys" selected>cowboys</option>
+        </select>
+        <br>
+        <input type="submit">
+
+    </form>
+    <h2>Select Testing</h2>
+    <form method="post" action="http://requestb.in/1dwf6ib1">
+        <label for="question">Are you alive?</label>
+        <select name="question" id="question">
+            <option value="1">Yes</option>
+            <option value="0" selected>no</option>
+        </select>
+
+
+    </form>
+
+</body>
+</html>
