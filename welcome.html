@@ -4,9 +4,11 @@
     <meta charset="utf-8">
     <title>Ned Waldie</title>
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/ned.css">
 </head>
 <body>
+<div class="center-block">
     <!--NAV Bar-->
     <div class="navbar-wrapper">
         <div class="container">
@@ -25,9 +27,9 @@
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
                             <li class="active"><a href="#nav-bar">Home</a></li>
-                            <li><a href="#about">About</a></li>
-                            <li><a href="#resume">Resume</a></li>
-                            <li><a href="#portfolio">Portfolio</a></li>
+                            <li><a href="#about-link">About</a></li>
+                            <li><a href="#resume-link">Resume</a></li>
+                            <li><a href="#portfolio-link">Portfolio</a></li>
                         </ul>
                     </div>
                 </div>
@@ -48,6 +50,7 @@
             <h1 class="name">nw_waldie3@yahoo.com</h1>
         </div>
     </div>
+    <div class="page-links" id="about-link"></div>
     <!--About me-->
     <div id="about">
         <div class="title-decor">
@@ -61,6 +64,7 @@
         </div>
     </div>
 
+    <div class="page-links" id="resume-link"></div>
     <!--Resume-->
     <div id="resume">
         <div class="title-decor">
@@ -137,6 +141,7 @@
         </div>
     </div>
 
+    <div class="page-links" id="portfolio-link"></div>
     <!--Portfolio-->
     <div id="portfolio">
         <div class="title-decor">
@@ -148,14 +153,34 @@
 
     <!--Footer with social media links-->
     <div id="links-div">
-        <i class="fa fa-linkedin-square fa-lg" aria-hidden="true">Linked In</i>
-
-
+        <div class="what" id="first">
+            <a href="https://github.com/hooks325" target="_blank">
+            <i class="fa fa-github-square center-block icon col-lg-3 col-md-3 col-sm-3 col-xs-3 social-links"></i>
+            </a>
+        </div>
+        <div class="what">
+            <a href="https://www.linkedin.com/in/ned-waldie-79684b52" target="_blank">
+                <i class="fa fa-linkedin-square center-block icon col-lg-3 col-md-3 col-sm-3 col-xs-3 social-links"></i>
+            </a>
+        </div>
+        <div class="what">
+            <a href="https://www.facebook.com/nwaldie" target="_blank">
+                <i class="fa fa-facebook-square center-block icon col-lg-3 col-md-3 col-sm-3 col-xs-3 social-links"></i>
+            </a>
+        </div>
+        <div class="what">
+            <a href="https://www.instagram.com/hooks325/" target="_blank">
+                <i class="fa fa-instagram center-block icon social-links"></i>
+            </a>
+        </div>
     </div>
+
+    <!--Footer Information-->
     <div id="footer">
         <div class="col-md-4 info text-center">San Antonio</div>
         <div class="col-md-4 info text-center">nw_waldie3@yahoo.com</div>
         <div class="col-md-4 info text-center">210-834-3857</div>
     </div>
+</div>
 </body>
 </html>
