@@ -8,6 +8,7 @@ body    {
 #nav-bar    {
     position: fixed;
     border-radius: 8px;
+    opacity: .9;
 }
 #main-img   {
     width: 200px;
@@ -30,7 +31,7 @@ body    {
     z-index: -999;
 }
 #opac   {
-    opacity: .75;
+    opacity: .5;
 }
 #img-container  {
     width: 100%;
