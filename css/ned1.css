@@ -6,13 +6,13 @@
     background-color: rgba(49, 79, 79, .9);
     width: 100%;
     height: 50em;
-    /*background-image: url("../img/type.jpg");*/
+    background-image: url("../img/tiger.JPG");
 }
 #goal-container {
     width: 100%;
     height: auto;
     position: relative;
-    top: 200px;
+    top: 220px;
 }
 #goal   {
     text-align: center;
@@ -25,7 +25,7 @@
     width: 100%;
     height: auto;
     position: relative;
-    top: 200px;
+    top: 220px;
 }
 #slogan   {
     text-align: center;
