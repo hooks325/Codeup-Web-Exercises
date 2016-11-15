@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function getRandomElement(array) {
+        // Define our bondaries
+        var min = 0;
+        var max = array.length - 1;
+
+        // Get a random index
+        var randomIndex = getRandomInt(min, max + 1);
+
+        var randomElement = array[randomIndex];
+
+        // Return the item at that index
+        return randomElement;
+    }
+</script>
+</body>
+</html>
