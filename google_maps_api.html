@@ -19,9 +19,6 @@
 
 <h1>My Favorite Restaurant</h1>
 
-
-
-
 <!-- div to hold map -->
 <div id="map-canvas"></div>
 
@@ -33,56 +30,68 @@
     (function() {
         "use strict";
 
-        // setting address as variable
-        var address = '7300 S Loop 1604 W, Somerset, TX 78069';
+        var restaurants = [{
+            name: 'Constantino\'s Pizza',
+            address: '7300 S Loop 1604 W, Somerset, TX 78069',
+            content: '<img ALIGN="Right" SRC="img/pizza2.jpeg">' +
+            '<h1>Constantino\'s Pizza</h1>'+
+            '<p>Quality food at a quality price</p>'
+        },
+        {
+            name: 'Ding How',
+            address: '4531 NW Loop 410, San Antonio, TX 78229',
+            content: '<h1>Ding How</h1>'
+        },
+        {
+            name: 'Jimmy John\'s',
+            address: '5851 NW Loop 410 #102, San Antonio, TX 78238',
+            content: '<h1>Jimmy John\'s</h1>'
+        }];
 
-        // get a new instance of the Geocoder() object
-        var geocoder = new google.maps.Geocoder();
+        restaurants.forEach(function(restaurant) {
+            var address = restaurant.address;
+            var geocoder = new google.maps.Geocoder();
 
-        // geocode the address
-        geocoder.geocode({'address' : address}, function(results, status) {
-            // check for a successful result
-            if (status == google.maps.GeocoderStatus.OK) {
-                // Recenter the map over the address
-                map.setCenter(results[0].geometry.location);
-            } else {
-                // Show an error message with the status if our request fails
-                alert("Geocoding was not successful - STATUS: " + status);
-            }
+            // geocode the address
+            geocoder.geocode( { 'address': address}, function(results, status) {
+                if (status == 'OK') {
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location,
+                        animation: google.maps.Animation.DROP
+                    });
+
+                    var contentStr = restaurant.content;
+
+                    var infoWindow = new google.maps.InfoWindow({
+                        // content of the info window
+                        content: contentStr
+                    });
+
+                    var openWindow = function() {
+                        infoWindow.open(map, marker);
+                    };
+
+                    marker.addListener('click', openWindow);
+                } else {
+                    alert('Geocode was not successful for the following reason: ' + status);
+                }
+            });
+
         });
 
         // Set our map options
         var mapOptions = {
             // Set the zoom level
-            zoom: 15
-
+            zoom: 10,
+            center: {
+                lat: 29.4241,
+                lng: -98.4936
+            }
         };
 
         // Render the map
         var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-
-        // Create lat and long for our marker position
-        var constantinos = {lat: 29.227829, lng: -98.645003};
-
-        // Add the marker to our existing map
-        var marker = new google.maps.Marker({
-          position: constantinos,
-          map: map,
-          animation: google.maps.Animation.DROP
-        });
-        var contentStr = '<h1>Constantino\'s Pizza</h1>'+
-                '<p>Quality food at a quality price</p>';
-
-        // Create a new infoWindow object with content
-        var infoWindow = new google.maps.InfoWindow({
-            // content of the info window
-            content: contentStr
-        });
-
-        var openWindow = function() {
-            infoWindow.open(map, marker);
-        };
-        marker.addListener('click', openWindow);
     })();
 </script>
 </body>
