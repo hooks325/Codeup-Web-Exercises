@@ -3,8 +3,9 @@
  */
 'use strict';
 (function() {
-    function range(start, stop, count === 1) {
+    function range(start, stop, count) {
         var rangeOfNumbers = [];
+        var count = (typeof count !== 'undefined') ?  count : 1;
 
         if (start < stop) {
             for (start; start < stop; start = start + count) {
@@ -21,5 +22,5 @@
         }
 
     }
-    console.log(range(5, 1, 2));
+    console.log(range(5, 1));
 })();
