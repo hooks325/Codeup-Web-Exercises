@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery Exercises</title>
+    <script src="js/jquery-2.js"></script>
+    <style>
+        #divID{
+            width: 130px;
+            height: 100px;
+            background-color: cornflowerblue;
+            position: relative;
+            top: 20px;
+        }
+    </style>
+</head>
+<body>
+<h1 id="heading" class="codeup">JQuery Exercises</h1>
+
+<p id="test">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur error facere, fuga fugiat necessitatibus quidem repellat. At consequuntur, deserunt eos fuga iste laudantium minus molestiae natus nihil officiis qui veritatis!</p>
+
+<ul id="unordered">
+    <h2 class="codeup">Favorite Sports</h2>
+
+    <li>test</li>
+    <li>test1</li>
+    <li>Test2</li>
+</ul>
+
+    <input type="text" id="sport">
+    <button id="add">Add</button>
+<div id="divID" class="codeup"></div>
+
+<script>
+    $(document).ready(function() {
+        $('.codeup').css('border-style','solid');
+        $('.codeup').css('border-width','1px');
+        $('.codeup').css('border-color','red');
+        $('h1, p, li').css('background-color', 'grey');
+        $('h1, h2').css('font-size', '45px');
+        $('li').first().css('color', 'yellow');
+        $('li').last().css('font-size', '30px');
+
+
+
+        $('#add').click(function(){
+            var userSport = $('#sport').val();
+            $('#unordered').append('<li>' + userSport + '</li>');
+            $('#sport').val('');
+            $('li').css('font-size', '20px');
+            console.log($('#divID').css('background-color'));
+            if ($('#divID').css('background-color') == 'rgb(100, 149, 237)') {
+                $('#divID').css('background-color', 'aquamarine');
+            } else {
+                $('#divID').css('background-color', 'cornflowerblue');
+            }
+        });
+
+
+    });
+</script>
+</body>
+</html>
