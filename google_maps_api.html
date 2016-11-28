@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>Google Maps API</title>
     <style type="text/css">
         #map-canvas {
             width: 770px;
@@ -13,6 +14,16 @@
         h1  {
             text-align: center;
         }
+        .userInput {
+            position: relative;
+            left: 247px;
+        }
+        #userAddress {
+            width: 200px;
+        }
+        #markerContent {
+            width: 200px;
+        }
     </style>
 </head>
 <body>
@@ -21,6 +32,14 @@
 
 <!-- div to hold map -->
 <div id="map-canvas"></div>
+
+<!-- Input boxes to add additional locations -->
+    <input type="text" class="userInput" id="userAddress" placeholder="Enter Address">
+    <button class="userInput" id="addMarker">Add Marker</button>
+    <br>
+    <input type="text" class="userInput" id="markerContent" placeholder="Enter Content">
+    <button class="userInput" id="traffic">Toggle Traffic</button>
+
 
 <!-- Load the Google Maps API [DON'T FORGET TO USE A KEY] -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBr11p5gLoL2rOIKbwTneJ2h2xS1mq63o"></script>
@@ -40,14 +59,20 @@
         {
             name: 'Ding How',
             address: '4531 NW Loop 410, San Antonio, TX 78229',
-            content: '<h1>Ding How</h1>'
+            content: '<h1>Ding How</h1>' +
+                    '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam deserunt doloremque ducimus eum id illo, libero nemo odio perspiciatis possimus quia saepe similique sunt ut veniam. Consequatur eius sit tempora!</p>'
         },
         {
             name: 'Jimmy John\'s',
             address: '5851 NW Loop 410 #102, San Antonio, TX 78238',
-            content: '<h1>Jimmy John\'s</h1>'
+            content: '<h1>Jimmy John\'s</h1>' +
+                    '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae enim eveniet expedita iste magni soluta vitae! Animi facere ipsa minima quidem sit. Assumenda iusto molestias quo reprehenderit. Ea, perferendis, quos?</p>'
         }];
 
+
+
+
+        // for each loop to iterate through my restaurants
         restaurants.forEach(function(restaurant) {
             var address = restaurant.address;
             var geocoder = new google.maps.Geocoder();
@@ -65,7 +90,8 @@
 
                     var infoWindow = new google.maps.InfoWindow({
                         // content of the info window
-                        content: contentStr
+                        content: contentStr,
+                        maxWidth: 300
                     });
 
                     var openWindow = function() {
@@ -74,7 +100,7 @@
 
                     marker.addListener('click', openWindow);
                 } else {
-                    alert('Geocode was not successful for the following reason: ' + status);
+                    alert('Google was unable to find that address');
                 }
             });
 
@@ -92,6 +118,49 @@
 
         // Render the map
         var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+        // Creating function to add marker to map
+        var userMarker = function() {
+            var userAddress = document.getElementById('userAddress').value;
+            var markerContent = document.getElementById('markerContent').value;
+            var geocoder = new google.maps.Geocoder();
+
+        var btnPressed = false;
+
+        // Creating Function to toggle traffic
+
+            geocoder.geocode( { 'address': userAddress}, function(results, status) {
+                if (status == 'OK') {
+                    map.setCenter(results[0].geometry.location);
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location,
+                        animation: google.maps.Animation.DROP
+                    });
+
+                    var infoWindow = new google.maps.InfoWindow({
+                        // content of the info window
+                        content: markerContent,
+                        maxWidth: 300
+                    });
+
+                    var openWindow = function() {
+                        infoWindow.open(map, marker);
+                    };
+
+                    marker.addListener('click', openWindow);
+                } else {
+                    alert('Google was unable to find that address');
+                }
+            });
+        };
+
+        // creating the button and assigning a function to run when clicked
+        var addMarkerButton = document.getElementById('addMarker');
+        var trafficButton = document.getElementById('traffic');
+        addMarkerButton.addEventListener('click', userMarker);
+        trafficButton.addEventListener('click', trafficToggle);
+
     })();
 </script>
 </body>
