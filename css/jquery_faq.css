@@ -1,6 +1,27 @@
+body    {
+    background-color: #a94442;
+}
 dl  {
     text-align: center;
 }
-.invisible  {
-    display: none;
+/*.invisible  {*/
+    /*display: none;*/
+/*}*/
+a   {
+    left: 200px;
+}
+#list-of-parks {
+    margin: 0 auto;
+    width: 500px;
+    height: 600px;
+    background-color: #265a88;
+}
+hr  {
+    border-color: #adadad;
+}
+#move-box   {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    background-color: #00cc66;
 }
