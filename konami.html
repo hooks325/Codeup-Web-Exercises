@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Konami Code</title>
+    <style>
+        /*#match {*/
+            /*background-color: white;*/
+            /*color: white;*/
+            /*width: 200px;*/
+            /*height: 200px;*/
+        /*}*/
+    </style>
+    <script src="js/jquery-2.js"></script>
+</head>
+<body>
+
+    <div id="match"></div>
+
+    <script>
+
+        // Track each time a key is pressed
+        var code = '';
+        var konamiCode = '&&((%\'%\'BA';
+
+        $(document).keyup(function(event){
+            console.log(event.keyCode);
+            code = code + String.fromCharCode(event.keyCode);
+            console.log(code);
+
+            if (code == konamiCode){
+                alert('Congrats! That code is correct');
+                $('body').css('background-color', 'green');
+                code = '';
+            } else if (code != konamiCode && code.length == 10) {
+                alert('Code incorrect...Start Over!');
+                $('body').css('background-color', 'red');
+                code = '';
+            }
+
+            if (code.length > 10) {
+                code = '';
+            }
+        });
+
+    </script>
+</body>
+</html>

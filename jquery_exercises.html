@@ -5,6 +5,9 @@
     <title>JQuery Exercises</title>
     <script src="js/jquery-2.js"></script>
     <style>
+        body {
+            background-color: #985f0d;
+        }
         #divID{
             width: 130px;
             height: 100px;
@@ -19,9 +22,10 @@
 
 <p id="test">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur error facere, fuga fugiat necessitatibus quidem repellat. At consequuntur, deserunt eos fuga iste laudantium minus molestiae natus nihil officiis qui veritatis!</p>
 
-<ul id="unordered">
-    <h2 class="codeup">Favorite Sports</h2>
+<p id="paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita iste tempora veritatis! Amet at dolor dolorum explicabo facere harum illum iste rem repellendus veritatis. Aliquid fugit molestiae mollitia officiis tempora.</p>
 
+<h2 class="codeup">Favorite Sports</h2>
+<ul id="unordered">
     <li>test</li>
     <li>test1</li>
     <li>Test2</li>
@@ -38,8 +42,6 @@
         $('.codeup').css('border-color','red');
         $('h1, p, li').css('background-color', 'grey');
         $('h1, h2').css('font-size', '45px');
-        $('li').first().css('color', 'yellow');
-        $('li').last().css('font-size', '30px');
 
 
 
@@ -54,8 +56,22 @@
             } else {
                 $('#divID').css('background-color', 'cornflowerblue');
             }
+
         });
 
+        $('#heading').click(function() {
+            $('#heading').css('background-color', 'blue');
+        });
+
+        $('p').dblclick(function() {
+            $('p').css('font-size', '18px');
+        });
+
+        $('li').hover(function() {
+                $(this).css('color', 'red');
+            }, function() {
+                $(this).css('color', 'white');
+        })
 
     });
 </script>

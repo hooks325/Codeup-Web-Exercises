@@ -1,0 +1,22 @@
+
+article, aside, details, figcaption, figure, footer, header, menu, nav, section {
+    display: block;
+}
+body {
+    background-image: url('../img/stars.jpg');
+    color: white;
+}
+a   {
+    color: red;
+}
+h1 {
+    text-align: center;
+}
+p {
+    text-align: center;
+}
+canvas {
+    display: block;
+    margin: 0 auto;
+    background-color: lightslategray;
+}
