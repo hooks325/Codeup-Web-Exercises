@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/ajax_blog.css">
+    <script src="js/jquery-2.js"></script>
+</head>
+<body>
+
+
+
+    <h1 id="title">The Blog</h1>
+    <div id="posts"></div>
+    <br>
+    <div id="input-container">
+        <label for="blogTitle">Title:</label>
+        <input type="text" id="blogTitle" class="form-control">
+        <label for="date">Date: </label>
+        <input type="date" id="date" class="form-control">
+        <label for="content">Enter Post:</label>
+        <textarea name="content" id="content" class="form-control"></textarea>
+        <label for="categories">Categories:</label>
+        <input type="text" id="categories" class="form-control">
+        <button id="button" type="submit" class="btn btn-primary btn-group-lg">Submit New Post</button>
+    </div>
+
+    <script>
+        (function() {
+            var newArray = [];
+
+            var newCall = function () {
+                var post = $.ajax({
+                    url: 'data/blog.json',
+                    type: 'GET',
+                    dataType: 'json'
+                });
+
+                post.done(function (post) {
+
+
+                    var data = '';
+                    $(post).each(function (index) {
+                        data += '<h2 class="text">' + post[index].title + '</h2>' +
+                                '<p class="text">' + post[index].content + '</p>' +
+                                '<h4 class="text">' + post[index].categories + '</h4>' +
+                                '<p class="text">' + post[index].date + '</p>';
+                    });
+
+
+                    $('#posts').append(data);
+
+                });
+            };
+
+            newCall();
+
+
+            var addFunction = function () {
+
+                newCall();
+
+                var userTitle = $('#blogTitle').val();
+                var userBlogContent = $('#content').val();
+                var date = $('#date').val();
+                var categories = $('#categories').val();
+
+                var newData = {};
+
+                newData.title = userTitle;
+                newData.content = userBlogContent;
+                newData.categories = categories;
+                newData.date = date;
+
+                newArray.push(newData);
+
+
+                var addPost = '';
+                addPost += '<h2 class="text">' + newData.title + '</h2>' +
+                        '<p class="text">' + newData.content + '</p>' +
+                        '<h4 class="text">' + newData.categories + '</h4>' +
+                        '<p class="text">' + newData.date + '</p>';
+
+                $('#posts').html(addPost);
+
+            };
+
+            $('#button').click(function () {
+                addFunction();
+            })
+
+        })();
+    </script>
+</body>
+</html>

@@ -19,9 +19,12 @@ a   {
 hr  {
     border-color: #adadad;
 }
+#game-box {
+    width:  800px;
+    height: 800px;
+    background-color: yellow;
+}
 #move-box   {
-    width: 100px;
-    height: 100px;
+    margin: 0 auto;
     position: relative;
-    background-color: #00cc66;
 }

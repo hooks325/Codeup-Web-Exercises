@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Aref+Ruqaa');
+@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
+
+body    {
+    background-image: url("../img/wod1.jpeg");
+    background-position: -85px -85px;
+}
+#title  {
+    color: slategrey;
+    text-align: center;
+    font-size: 70px;
+    font-family: 'Raleway', sans-serif;
+    font-stretch: ultra-expanded;
+}
+#posts {
+    width:  75%;
+    height: 100%;
+    background-image: url("../img/cork-wallet.png");
+    position: relative;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+#input-container    {
+    width:  75%;
+    height: 100%;
+    position: relative;
+    margin: 0 auto;
+    border-radius: 30px;
+    text-align: center;
+}
+h2, h4  {
+    color: slategrey;
+    font-family: 'Gloria Hallelujah', cursive;
+    position: relative;
+    left: 5px;
+}
+p   {
+    color: darkslategrey;
+    font-family: 'Aref Ruqaa', serif;
+    position: relative;
+    left: 5px;
+}
+.text {
+    margin-left: 20px;
+    margin-right: 20px
+}
+input   {
+    width: 232px;
+
+}
