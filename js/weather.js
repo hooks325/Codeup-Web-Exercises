@@ -4,8 +4,8 @@
 (function() {
     "use strict";
     var apiKey = "94da86c402c295c59c7297dbe5007dd5";
-    var lat = "29.427325";
-    var lon = "-98.491097";
+    // var lat = "29.427325";
+    // var lon = "-98.491097";
 
     //api request
     function request(lat, lon){
@@ -32,21 +32,51 @@
                 var date = moment.unix(data.list[i].dt);
                 var cityName = data.city.name;
 
-                $('#city').html(cityName);
+                $('#city').html('<h1>' + cityName + ' Three day weather forecast' + '</h1>');
 
-                weatherInfo += '<div class="weather-div">' + date.format('dddd, MMM DD YYYY') + '<br>' + max + '/' + min + '<br>' + '<br>' +
-                    'Conditions: ' + description +
-                    '<br>' +
+                weatherInfo += '<div class="weather-div" id=i>' + '<h5>' + date.format('dddd, MMM DD YYYY') + '</h5>' +
+                    '<span>High: </span>' + Math.round(max) + '°' + '<br>' +
+                    '<span>Low: </span>' + Math.round(min)+ '°' + '<br>' +
+                    '<span>Conditions: </span>' + description + '<br>' +
                     '<div><img  src="http://openweathermap.org/img/w/' + data.list[i].weather[0].icon + '.png"></div>' +
-                    'Humidity: ' + humidity +
-                    '<br>' + '<br>' +
-                    'Wind: ' + wind +
-                    '<br>' + '<br>' +
-                    'Pressure: ' + pressure + '</div>';
-                console.log(i);
+                    '<span>Humidity: </span>' + humidity + '<br>' +
+                    '<span>Wind: </span>' + Math.round(wind) + 'mph' + '<br>' +
+                    '<span>Pressure: </span>' + Math.round(pressure) + '</div>';
+
                 $('#content').html(weatherInfo);
 
-            };
+
+            }
+
+            if (data.list[0].weather[0].description.includes('clear')) {
+                $('.weather-div:nth-child(1)').addClass('sun');
+            } else if (data.list[0].weather[0].description.includes('cloud')) {
+                $('.weather-div:nth-child(1)').addClass('cloud');
+            } else if (data.list[0].weather[0].description.includes('rain')) {
+                $('.weather-div:nth-child(1)').addClass('rain');
+            } else if (data.list[0].weather[0].description.includes('snow')) {
+                $('.weather-div:nth-child(1)').addClass('snow');
+            }
+
+            if (data.list[1].weather[0].description.includes('clear')) {
+                $('.weather-div:nth-child(2)').addClass('sun');
+            } else if (data.list[1].weather[0].description.includes('cloud')) {
+                $('.weather-div:nth-child(2)').addClass('cloud');
+            } else if (data.list[1].weather[0].description.includes('rain')) {
+                $('.weather-div:nth-child(2)').addClass('rain');
+            } else if (data.list[1].weather[0].description.includes('snow')) {
+                $('.weather-div:nth-child(2)').addClass('snow');
+            }
+
+            if (data.list[2].weather[0].description.includes('clear')) {
+                $('.weather-div:nth-child(3)').addClass('sun');
+            } else if (data.list[2].weather[0].description.includes('cloud')) {
+                $('.weather-div:nth-child(3)').addClass('cloud');
+            } else if (data.list[2].weather[0].description.includes('rain')) {
+                $('.weather-div:nth-child(3)').addClass('rain');
+            } else if (data.list[2].weather[0].description.includes('snow')) {
+                $('.weather-div:nth-child(3)').addClass('snow');
+            }
         })
 
     }
@@ -56,7 +86,7 @@
         // Set our map options
         var mapOptions = {
             // Set the zoom level
-            zoom: 5,
+            zoom: 10,
 
             // This sets the center of the map at our location
             center: {
@@ -79,31 +109,40 @@
         var marker = new google.maps.Marker({
             position: myLatLng,
             map: map,
-            draggable: true
+            draggable: true,
+            animation: google.maps.Animation.DROP
         });
 
         google.maps.event.addListener(marker, 'dragend', function(location) {
 
             myLatLng.lat = location.latLng.lat();
             myLatLng.lng = location.latLng.lng();
-            console.log(myLatLng);
+            // console.log(myLatLng);
             request(myLatLng.lat, myLatLng.lng);
         })
 
         request(myLatLng.lat, myLatLng.lng);
 
+        // double click function
+        google.maps.event.addListener(map, 'click', function(event) {
+            placeMarker(event.latLng);
+        });
+
+        function placeMarker(location) {
+            if (marker == undefined) {
+                marker = new google.maps.Marker({
+                    position: location,
+                    map: map,
+                    animation: google.maps.Animation.DROP,
+                });
+            }
+            else {
+                marker.setPosition(location);
+                request(location.lat, location.lng);
+            }
+            map.setCenter(location);
+        }
+
     };
     newMap();
-
-
-
-    // Function to add marker
-
-
-
-
-
-
-
-
 })();

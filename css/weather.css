@@ -1,29 +1,55 @@
+@import url('https://fonts.googleapis.com/css?family=Shadows+Into+Light');
+@import url('https://fonts.googleapis.com/css?family=Maven+Pro');
+
 body {
-    background-color: #9AD3FE !important;
+    background-image: url("../img/maze-background.png");
+}
+#header {
+    background-image: url("../img/weather.jpg");
+    width: 100%;
+    height: 200px;
+    margin: 0;
+    padding: 0;
+    opacity: .9;
+    border-color: #0f0f0f;
+    border-radius: 100px;
+}
+#title {
+    text-align: center;
+    font-size: 120px;
+    font-family: 'Shadows Into Light', cursive;
+    font-weight: 600;
+    color: cornflowerblue;
 }
 .weather-div    {
-    width: 250px;
+    width: 220px;
+    /*width: 300px;*/
     height: 250px;
     border: 2px solid black;
+    margin: 0 1em;
     text-align: center;
-    background-color: #EFEFEF;
-    float: left;
+    background-color: transparent;
+    display: inline-block;
+    border-radius: 10px;
+    box-shadow: inset 0 0 15px darkslategrey;
 }
 #weather-map {
-    width: 750px;
+    /*width: 750px;*/
+    width: 75%;
     height: 350px;
-    margin: 0 auto;
-    position: relative;
-    top: 5px;
-    right: 13px;
+    display: block;
+    margin: 10px auto;
+    border: 2px solid black;
+    border-radius: 15px;
+
 }
-#content {
-    position: relative;
-    margin-left: 19%;
-}
-h1, h2 {
+h2 {
     margin: 0 auto;
     text-align: center;
+
+}
+#city {
+    color: #265a88;
 }
 #inputDiv {
     width: 750px;
@@ -31,4 +57,26 @@ h1, h2 {
     position: relative;
     top: 10px;
     right: 13px;
+}
+#content {
+    text-align: center;
+}
+span {
+    font-weight: 900;
+    font-size: 17px;
+    margin-bottom: 30px;
+    font-family: 'Maven Pro', sans-serif;
+
+}
+.sun {
+    background-image: url("../img/sun.png");
+}
+.cloud {
+    background-image: url("../img/sanantonio.png");
+}
+.rain {
+    background-image: url("../img/rain.png");
+}
+.snow {
+    background-image: url("../img/snow.png");
 }
