@@ -4,11 +4,9 @@
 (function() {
     "use strict";
     var apiKey = "94da86c402c295c59c7297dbe5007dd5";
-    // var lat = "29.427325";
-    // var lon = "-98.491097";
 
-    //api request
-    function request(lat, lon){
+    // Function for the API request and build out the 3 day forecast
+    function threeDayForecast(lat, lon){
         var weatherData = $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
             APPID: apiKey,
             lat: lat,
@@ -32,7 +30,9 @@
                 var date = moment.unix(data.list[i].dt);
                 var cityName = data.city.name;
 
-                $('#city').html('<h1>' + cityName + ' Three day weather forecast' + '</h1>');
+                $('#city').html('<h1>Three Day Weather Forecast for:</h1>');
+                $('#city').append('<h1>' + cityName + '</h1>');
+
 
                 weatherInfo += '<div class="weather-div" id=i>' + '<h5>' + date.format('dddd, MMM DD YYYY') + '</h5>' +
                     '<span>High: </span>' + Math.round(max) + '°' + '<br>' +
@@ -48,6 +48,7 @@
 
             }
 
+            // Change the background img of the divs based on the weather
             if (data.list[0].weather[0].description.includes('clear')) {
                 $('.weather-div:nth-child(1)').addClass('sun');
             } else if (data.list[0].weather[0].description.includes('cloud')) {
@@ -86,7 +87,7 @@
         // Set our map options
         var mapOptions = {
             // Set the zoom level
-            zoom: 10,
+            zoom: 5,
 
             // This sets the center of the map at our location
             center: {
@@ -98,14 +99,10 @@
         // Render the map
         var map = new google.maps.Map(document.getElementById("weather-map"), mapOptions);
 
+        // Setting the initial Lat and Lng for the marker
         var myLatLng = {lat: 29.427325, lng: -98.491097};
 
-        // $('#addMarker').click(function() {
-        //
-        // })
-
-
-
+        // Place the initial Marker on the map
         var marker = new google.maps.Marker({
             position: myLatLng,
             map: map,
@@ -113,21 +110,23 @@
             animation: google.maps.Animation.DROP
         });
 
+        // Function to gather location when marker is moved
         google.maps.event.addListener(marker, 'dragend', function(location) {
-
             myLatLng.lat = location.latLng.lat();
             myLatLng.lng = location.latLng.lng();
             // console.log(myLatLng);
-            request(myLatLng.lat, myLatLng.lng);
+            threeDayForecast(myLatLng.lat, myLatLng.lng);
         })
 
-        request(myLatLng.lat, myLatLng.lng);
+        // Calling the 3 day forecast function with the markers latest lat and lng
+        threeDayForecast(myLatLng.lat, myLatLng.lng);
 
-        // double click function
+        // Function to click and move the marker
         google.maps.event.addListener(map, 'click', function(event) {
             placeMarker(event.latLng);
         });
 
+        // Function to gather location and place the marker where clicked
         function placeMarker(location) {
             if (marker == undefined) {
                 marker = new google.maps.Marker({
@@ -138,11 +137,32 @@
             }
             else {
                 marker.setPosition(location);
-                request(location.lat, location.lng);
+                threeDayForecast(location.lat, location.lng);
             }
             map.setCenter(location);
         }
 
+        // Function to move the marker based where the user has searched
+        var userMarker = function() {
+            var userAddress = document.getElementById('pac-input').value;
+            var geocoder = new google.maps.Geocoder();
+
+            geocoder.geocode( { 'address': userAddress}, function(results, status) {
+                if (status == 'OK') {
+                    map.setCenter(results[0].geometry.location);
+                    marker.setPosition(results[0].geometry.location);
+                    threeDayForecast(marker.position.lat, marker.position.lng);
+                } else {
+                    alert('Google was unable to find that address');
+                }
+            });
+        };
+
+        // Creating button and event listener
+        var addMarkerButton = document.getElementById('search-button');
+        addMarkerButton.addEventListener('click', userMarker);
     };
+
+    // Calling the map to draw
     newMap();
 })();
